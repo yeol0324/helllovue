@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>attribute binding</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<style>
+    .dropdown ul{
+        display: none;
+        list-style: none;
+        margin: 0;
+        border: solid 1px black;
+        padding: 10px;
+        width: 200px;
+    }
+    .dropdown.on ul{
+        display: block;
+    }
+</style>
+<body>
+    <div id="app">
+        <!-- <span :id="`this_id_${id}`">{{ text }}</span> -->
+        <div :class="[dropdown, toggle]" >
+            <ul :style="[color, fontStyle]">
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="#">메뉴2</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            id: 1,
+            text: 'first',
+            color: {
+                background: 'purple',
+                color: 'white'
+            },
+            fontStyle: {
+                fontSize: '25px',
+            },
+            dropdown: 'dropdown',
+            toggle: {
+                on: true
+                //false일 경우 dropdown 해제됨
+            }
+        }
+    })
+</script>
+</html>
