@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <span>{{ count }}</span>
+        <button type="button" v-on:click="add">더하기</button>
+        <!-- v-on의 단축키 @ /// ex) @click -->
+        <br />
+        <input type="text" @keyup.enter="keyUp">
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            count: 0
+        },
+        methods: {
+            add() {
+                this.count++;
+            },
+            keyUp(e){
+                if(e.keyCode == 13) {
+                    alert('Enter');
+                }
+            }
+        }
+    })
+    //method: json객체나 class등에 속해있는 함수를 의미
+    //화살표 함수 사용 하면 안 됨( this를 바인딩 하지 않기 때문 )
+</script>
+</html>
